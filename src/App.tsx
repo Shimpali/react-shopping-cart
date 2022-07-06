@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import { Cart } from './features/cart/Cart';
-import { CartLink } from './features/cart/CartLink';
-import { Products } from './features/products/Products';
 
-function App() {
+import Cart from './features/cart/Cart';
+import CartLink from './features/cart/CartLink';
+import Products from './features/products/Products';
+import Home from './Home';
+
+const App = () => {
   return (
     <Router>
       <div>
@@ -26,14 +28,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
-
-function Home() {
-  return (
-    <main className='p-20 text-center'>
-      <h1>Welcome to the Sample Store</h1>
-    </main>
-  );
-}
