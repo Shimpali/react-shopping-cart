@@ -1,7 +1,7 @@
 import products from '../../../public/products.json';
 import productsReducer, { productsReceived } from './productsSlice';
 
-describe('products reducer', () => {
+describe('Products Reducer', () => {
   it('should return the initial state when passed an empty action', () => {
     const initialState = undefined;
     const action = { type: '' };

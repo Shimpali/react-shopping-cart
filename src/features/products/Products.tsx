@@ -27,6 +27,7 @@ const Products = () => {
                 <p className='font-bold text-md'>${product.price}</p>
                 <button
                   className='p-2 my-4 rounded-md bg-slate-300 border-slate-400 w-max'
+                  aria-label={`Add ${product.name} to cart`}
                   onClick={() => {
                     dispatch(addToCart(product.id));
                   }}

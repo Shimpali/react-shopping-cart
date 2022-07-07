@@ -49,13 +49,19 @@ const Cart = () => {
             <tr className='p-2' key={id}>
               <td className='p-4 border border-slate-600'>{products[id].name}</td>
               <td className='p-4 border border-slate-600'>
-                <input type='text' className='text-md w-100' defaultValue={quantity} onBlur={e => onQuantityChanged(e, id)} />
+                <input
+                  type='text'
+                  className='text-md w-100'
+                  defaultValue={quantity}
+                  aria-label={`Update ${products[id].name} quantity`}
+                  onBlur={e => onQuantityChanged(e, id)}
+                />
               </td>
               <td className='p-4 border border-slate-600'>${products[id].price}</td>
               <td className='flex p-4 border border-slate-600'>
                 <button
-                  aria-label={`Remove ${products[id].name} from Shopping Cart`}
                   className='p-1 mx-auto text-white border rounded-sm cursor-pointer bg-slate-400'
+                  title={`Remove ${products[id].name} from Shopping Cart`}
                   onClick={() => dispatch(removeFromCart(id))}
                 >
                   X
@@ -68,13 +74,13 @@ const Cart = () => {
           <tr>
             <td className='p-4 font-bold border border-slate-600'>Total</td>
             <td className='p-4 border border-slate-600'></td>
-            <td className='p-4 font-bold text-teal-600 border border-slate-600'>${totalPrice}</td>
+            <td className='p-4 font-bold text-teal-600 border border-slate-600 total'>${totalPrice}</td>
             <td className='p-4 border border-slate-600'></td>
           </tr>
         </tfoot>
       </table>
       <form className='flex flex-col w-100' onSubmit={onCheckout}>
-        {checkoutState === 'ERROR' ? <p className='py-4 text-lg font-bold text-center text-red-600'>{errorMessage}</p> : null}
+        {checkoutState === 'ERROR' ? <p className='py-4 text-lg font-bold text-center text-red-600 errorBox'>{errorMessage}</p> : null}
         {checkoutState === 'SUCCESS' ? <p className='py-4 text-lg font-bold text-center text-green-600'>{successMessage}</p> : null}
         <button className='p-4 mx-auto my-10 text-lg rounded-sm shadow-md cursor-pointer bg-slate-200' type='submit'>
           Checkout
